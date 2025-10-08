@@ -17,11 +17,9 @@ public class app {
         service.cargarDatosDemo(); // datos de prueba
 
         if (usarGui) {
-            // TODO (AHORA): crear edu.cerp.checkin.ui.CheckInGUI con método estático show(service)
-            // y descomentar la línea siguiente para lanzar tu GUI.
-            //Check_in.ui.CheckInGUI.show(service);
+            
             GUI.show(service);
-            System.out.println("⚠ GUI no implementada. Corre sin --gui para usar consola.");
+            System.out.println("funcionando");
         } else {
             MainConsole.run(service);
         }
