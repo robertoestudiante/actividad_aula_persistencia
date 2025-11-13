@@ -10,10 +10,22 @@ import model.Inscripcion;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
+import edu.cerp.checkin.persistencia.ArchivoManager;
 
 /** Lógica mínima en memoria (sin validaciones complejas). */
 public class SesionService {
     private final List<Inscripcion> inscripciones = new ArrayList<>();
+    private ArchivoManager archivoManager;
+
+    public SesionService() {
+        archivoManager = new ArchivoManager();
+        inscripciones = archivoManager.cargarInscripciones(); // cargar inscripciones previas
+    }
+
+    public void agregarInscripcion(Inscripcion inscripcion) {
+        inscripciones.add(inscripcion);                  // lista interna
+        archivoManager.guardarInscripcion(inscripcion);  // guardar dato
+    }
 
     public void registrar(String nombre, String documento, String curso) {
         if (nombre == null || nombre.isBlank()) nombre = "(sin nombre)";
@@ -24,6 +36,10 @@ public class SesionService {
 
     public List<Inscripcion> listar() { return Collections.unmodifiableList(inscripciones); }
 
+    public List<Inscripcion> getInscripciones() {
+        return inscripciones;
+    }
+    
     public List<Inscripcion> buscar(String q) {
         if (q == null || q.isBlank()) return listar();
         String s = q.toLowerCase();

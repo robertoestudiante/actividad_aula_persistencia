@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🎯 Actividad: **Check‑in Aula**
 
 🗓️ **Entrega individual**: **sábado 4 de octubre de 2025 – 11:00 PM (GMT‑3, Uruguay)**
@@ -212,3 +213,4 @@ public class App {
   * Código fuente (`src/...`) con la estructura mínima indicada.
   * `README.md` breve con comandos de compilación/ejecución por consola y cómo lanzar con `--gui`.
   * `.gitignore` básico.
+>>>>>>> 
