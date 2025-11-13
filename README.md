@@ -1,71 +1,61 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # 🎯 Actividad: **Check‑in Aula**
+=======
+🎯 Actividad: Check-in Aula – Versión con Persistencia
+🗓️ Entrega individual: jueves 13 de noviembre de 2025 – 11:00 AM (GMT-3, Uruguay)
+🔗 Entrega: link a tu repositorio GitHub (el mismo de la primera entrega), actualizado con los nuevos archivos de persistencia.
+>>>>>>> 469d5033de965f66ae7e567727eed684fbc8fccf
 
-🗓️ **Entrega individual**: **sábado 4 de octubre de 2025 – 11:00 PM (GMT‑3, Uruguay)**
-🔗 **Entrega**: **link a un repositorio GitHub** con el proyecto que **compila y corre por consola**. Además, **agregar ahora** un archivo de GUI y modificar el `main` para poder ejecutarlo con `--gui`.
+📍 Contexto
+En esta nueva versión, vas a retomar el trabajo ya entregado en la actividad Check-in Aula (consola + GUI) y modificarlo para agregar persistencia simple.
+El objetivo es que el sistema guarde y recupere los registros entre ejecuciones, manteniendo el diseño original y la estructura modular del proyecto.
 
----
+✅ Requisitos mínimos
+Persistencia simple
 
-## 📍 Contexto mínimo
+Podés usar archivos de texto (.txt o .csv), o bien archivos binarios o JSON.
 
-Necesitamos un registro **muy simple** de inscripciones al inicio de clase. Debe **funcionar por consola** y traer **algunos datos de prueba** precargados. Luego, **agregá un archivo de GUI** y **modificá `main`** para poder lanzar esa GUI. **Sin archivos JSON ni persistencia**.
+Debe existir una clase que gestione el guardado y la carga, por ejemplo:
 
----
+ 
+edu/cerp/checkin/persistencia/ArchivoManager.java
+Cada vez que se agregue una inscripción, el sistema debe guardar automáticamente los datos.
 
-## ✅ Qué debe hacer (mínimo)
+Al iniciar, debe leer los datos previos y mostrarlos en la GUI o en consola.
 
-* Registrar inscripciones (Nombre, Documento, Curso, Hora automática).
-* Listar todas y buscar por texto.
-* Mostrar un resumen básico por curso.
-* **Sin validaciones complejas** (flujo básico, se permiten duplicados).
+Reutilizar SesionService
 
----
+No modifiques su lógica principal: en lugar de eso, integrá el guardado/carga desde esta clase o desde un nuevo servicio complementario.
 
-## 📦 Estructura mínima del proyecto
+Mantenimiento del funcionamiento GUI y consola
 
-```
-src/
-└─ edu/cerp/checkin/
-   ├─ model/
-   │  └─ Inscripcion.java
-   ├─ logic/
-   │  └─ SesionService.java
-   ├─ console/
-   │  └─ MainConsole.java
-   └─ App.java              // Punto de entrada: consola por defecto; podrás activar GUI con --gui
-```
+El programa debe seguir ejecutándose por consola o con --gui.
 
----
+En ambos modos, los datos deben persistir.
 
-## 🧾 Código **completo** (consola)
+Estructura del proyecto actualizada
 
-### `src/edu/cerp/checkin/model/Inscripcion.java`
+ 
+src/ └─ edu/cerp/checkin/ ├─ model/ ├─ logic/ ├─ persistencia/ │ └─ ArchivoManager.java ├─ console/ ├─ ui/ └─ App.java
+💡 Sugerencias
+🧩 Elección del formato de persistencia
+Podés optar por:
 
-```java
-package edu.cerp.checkin.model;
+Texto plano (.txt): leer/escribir líneas separadas por “|”.
 
-import java.time.LocalDateTime;
+CSV: fácil de abrir con Excel o Google Sheets.
 
-public class Inscripcion {
-    private final String nombre;
-    private final String documento;
-    private final String curso; // "Prog 1" | "Prog 2" | "Base de Datos"
-    private final LocalDateTime fechaHora;
+JSON: usando bibliotecas como org.json o Gson (si querés explorar algo más avanzado).
 
-    public Inscripcion(String nombre, String documento, String curso, LocalDateTime fechaHora) {
-        this.nombre = nombre;
-        this.documento = documento;
-        this.curso = curso;
-        this.fechaHora = fechaHora;
-    }
+💾 Consejo
+Guardá el archivo en una carpeta data/ dentro del proyecto.
+Ejemplo: data/inscripciones.csv
 
-    public String getNombre() { return nombre; }
-    public String getDocumento() { return documento; }
-    public String getCurso() { return curso; }
-    public LocalDateTime getFechaHora() { return fechaHora; }
-}
-```
+🧠 Reflexión para tu README
+En el README.md, agregá un breve párrafo explicando:
 
+<<<<<<< HEAD
 ### `src/edu/cerp/checkin/logic/SesionService.java`
 
 ```java
