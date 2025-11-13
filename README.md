@@ -50,4 +50,6 @@ Ejemplo: data/inscripciones.csv
 🧠 Reflexión para tu README
 En el README.md, agregá un breve párrafo explicando:
 
-“Qué tipo de persistencia elegí y por qué fue adecuada para este proyecto educativo.”
+Elegí guardar los datos en un archivo CSV. 
+Cada inscripción se guarda automáticamente al agregarla, y al iniciar la aplicación se cargan las inscripciones previas. 
+Este formato es adecuado porque permite revisar los datos fácilmente con Excel por ejemplo.
