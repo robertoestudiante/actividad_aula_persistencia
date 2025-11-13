@@ -9,8 +9,14 @@
 # Configuración de IDEs
 *.idea
 *.vscode
-*.nbproject
+*.nbproject/private/
 *.iml
 .settings
+
+
+
+# Persistencia
+
+!data/inscripciones.csv
 
 
